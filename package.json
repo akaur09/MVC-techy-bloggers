@@ -1,0 +1,24 @@
+{
+  "name": "mvc-techy-bloggers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akaur09/MVC-techy-bloggers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akaur09/MVC-techy-bloggers/issues"
+  },
+  "homepage": "https://github.com/akaur09/MVC-techy-bloggers#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
