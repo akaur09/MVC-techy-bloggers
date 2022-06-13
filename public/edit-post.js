@@ -9,4 +9,17 @@ async function editHandler(event) {
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
+
+    // route
+    const response = await fetch(`/api/posts/${id}`,{
+        method: 'PUT',
+        body: JSON.stringify({
+            post_id: id,
+            title,
+            content
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }
