@@ -2,12 +2,17 @@
 
 ## Description
 Create a blog website using handlebar, MySQL, and JavaScript where users can create, edit and delete blogs.
+
+
 ## Usage
 
 ## Links and Screenshots
+deployed site:  https://infinite-beyond-70179.herokuapp.com/
+
 
 ## Contributors
 Amnider Kaur (github: https://github.com/akaur09)
+
 ## License
 
 MIT License
