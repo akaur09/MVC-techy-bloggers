@@ -32,3 +32,17 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+// create a route to login
+router.get('/login', (req,res) => {
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+// route to sign up for blog
+router.get('/signup', (req,res)=>{
+    res.render('signup');
+});
