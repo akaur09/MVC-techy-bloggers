@@ -46,3 +46,27 @@ router.get('/login', (req,res) => {
 router.get('/signup', (req,res)=>{
     res.render('signup');
 });
+
+// get a post by id
+router.get('/post/:id', (req,res) => {
+    Post.findOne({
+        where: { 
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'content', 'created_at'],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'title', 'content', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+})
