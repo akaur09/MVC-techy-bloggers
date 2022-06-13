@@ -16,5 +16,11 @@ async function addpostHandler(event) {
             'Content-Type': 'applicaiton/json'
         }
     });
-    
-}
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
+};
+
+document.querySelector('#add-post-form').addEventListener('submit', addpostHandler);
