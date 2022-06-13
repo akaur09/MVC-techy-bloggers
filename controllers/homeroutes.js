@@ -7,7 +7,7 @@ const { Post, User, Comment } = require('../models');
 // auth
 const withAuth = require('../utils/auth');
 
-// route to get
+// route to get all posts
 router.get('/', withAuth, (req, res) => {
     // function to find all posts
     Post.findAll({
@@ -42,3 +42,38 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     })
 })
+// route for user to get a post
+router.get('/edit/:id', withAuth, (req, res)=> {
+    // function to find only one post for user
+    Post.findOne({
+        // location
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id','title','content','created_at'],
+        include: [
+            {
+                model: User,
+                attributes: ['username'],
+            },
+            {
+                model: Comment,
+                attributes: ['id','title','content','created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            }
+        ]
+    }).then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({message: 'Sorry no post found with this id'});
+            return;
+        }
+        const post = dbPostData.get({plain: true});
+        res.render('edit-post', {post, loggedIn: true}); 
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
