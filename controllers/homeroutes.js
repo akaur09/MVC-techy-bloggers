@@ -68,5 +68,15 @@ router.get('/post/:id', (req,res) => {
                 attributes: ['username']
             }
         ]
-    })
-})
+    }).then(dbPostData => {
+        if(!dbPostData) {
+            res.status(404).json({message: 'no post with this id'});
+        }
+        const post =dbPostData.get({plain: true});
+        console.log(post);
+        res.render('single-post', {post, loggedIn: req.session.loggedIn});
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
