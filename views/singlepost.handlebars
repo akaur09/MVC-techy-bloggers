@@ -1,5 +1,12 @@
-<article class="post">
-    {{#each posts as |post|}}
-        {{>post-info post}}
-    {{/each}}
-</article>
+{{> post-info post}}
+
+{{#if loggedIn}}
+    <div>
+        <h3></h3>
+        <form>
+            <label></label>
+            <input>
+            <button></button>
+        </form>
+    </div>
+{{/if}}
