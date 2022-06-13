@@ -77,3 +77,9 @@ router.get('/edit/:id', withAuth, (req, res)=> {
         res.status(500).json(err);
     });
 });
+// to add a new post
+router.get('/new', (req, res) => {
+    res.render('add-post');
+});
+
+module.exports = router;
