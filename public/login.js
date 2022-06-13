@@ -7,7 +7,7 @@ async function loginFormHandler(event){
     // cofirm username and password match
     if (username && password){
         const response = await fetch('/appi/users/login', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 username,
                 password
