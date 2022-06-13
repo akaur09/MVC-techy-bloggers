@@ -39,7 +39,14 @@
             </div>
         </div>
     </nav>
+    <main class="container">
+        <h1 class="display-2 py-5"> MVC TECH BLOG </h1>
+        {{{ body }}}
+    </main>
 
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
